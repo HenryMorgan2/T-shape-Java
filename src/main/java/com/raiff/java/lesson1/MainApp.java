@@ -66,7 +66,6 @@ public class MainApp {
                 }
             }
         }
-
         System.out.println(textBalance);
 
         return thereIsABalance;
