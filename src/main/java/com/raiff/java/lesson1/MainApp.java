@@ -139,7 +139,6 @@ public class MainApp {
     //Задача № 11
     private static boolean checkBalanceArray(int[] arr) {
 
-        String textBalance = "";
         int sumArr = 0;
 
         for (int i = 0; i < arr.length; i++) {
@@ -156,8 +155,6 @@ public class MainApp {
             sumLeft += arr[i];
             if (sumLeft == sumBalance){
                 return true;
-            }else {
-                textBalance += arr[i] + (i == arr.length - 1 ? "" : ", ");
             }
         }
 
