@@ -7,18 +7,18 @@ import java.util.Arrays;
 public class EmployeeGroup {
 
     private String nameGroup;
-    private ArrayList<Employees> listEmployees;
+    private Employees[] listEmployees;
 
     EmployeeGroup(String nameGroup) {
         this.nameGroup = nameGroup;
-        this.listEmployees = new ArrayList(10);
+        this.listEmployees = new Employees[10];
     }
 
     public String getNameGroup() {
         return nameGroup;
     }
 
-    public ArrayList<Employees> getListEmployees() {
+    public Employees[] getListEmployees() {
         return listEmployees;
     }
 
@@ -28,36 +28,41 @@ public class EmployeeGroup {
 
     //setlistEmployees не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
     public void addEmployee(Employees employee) {
-        int countEmployees = listEmployees.size();
-        if (countEmployees == 10) {
-            System.out.printf("В группе максимальное количество сотрудников(%d). Добавление не возможно!\n", 10);
-            return;
+        //Ищем место куда можно добавить сотрудника
+        boolean employeeAdded = false;
+        for (int i = 0; i < listEmployees.length; i++) {
+            if (listEmployees[i] == null) {
+                listEmployees[i] = employee;
+                employeeAdded = true;
+                return;
+            }
         }
 
-        listEmployees.add(employee);
+        if (!employeeAdded) {
+            System.out.printf("В группе максимальное количество сотрудников(%d). Добавление не возможно!\n", 10);
+        }
     }
 
     public void removeEmployees(int index) {
-        int countEmployees = listEmployees.size();
-        if (countEmployees == 0) {
-            System.out.println("В группе отсутствуют сотрудники. Удаление не возможно!");
-            return;
-        }
 
         try {
-            listEmployees.remove(index);
+            listEmployees[index] = null;
         } catch (Exception e) {
             System.out.printf("Элемента с стаким индексом %d не существует. Элемент не удален!\n", index);
         }
     }
 
     public void removeAdd() {
-        listEmployees.clear();
+        for (int i = 0; i < listEmployees.length; i++) {
+            listEmployees[i] = null;
+        }
     }
 
     public void printInfo() {
         for (Employees pair : listEmployees) {
-            pair.printInfo();
+            if (pair != null) {
+                pair.printInfo();
+            }
         }
     }
 }
