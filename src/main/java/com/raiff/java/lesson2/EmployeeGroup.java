@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 public class EmployeeGroup {
 
-    private String nameGroup;
+    private String groupName;
     private ArrayList<Employee> listEmployees;
 
+
     EmployeeGroup(String nameGroup) {
-        this.nameGroup = nameGroup;
+        this.groupName = nameGroup;
         this.listEmployees = new ArrayList(10);
     }
 
     public String getNameGroup() {
-        return nameGroup;
+        return groupName;
     }
 
     public ArrayList<Employee> getListEmployees() {
@@ -21,7 +22,7 @@ public class EmployeeGroup {
     }
 
     public void setNameGroup(String name) {
-        this.nameGroup = name;
+        this.groupName = name;
     }
 
     //setlistEmployees не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
