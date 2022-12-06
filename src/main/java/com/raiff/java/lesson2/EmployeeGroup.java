@@ -1,13 +1,11 @@
 package com.raiff.java.lesson2;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class EmployeeGroup {
 
     private String nameGroup;
-    private ArrayList<Employees> listEmployees;
+    private ArrayList<Employee> listEmployees;
 
     EmployeeGroup(String nameGroup) {
         this.nameGroup = nameGroup;
@@ -18,20 +16,24 @@ public class EmployeeGroup {
         return nameGroup;
     }
 
-    public ArrayList<Employees> getListEmployees() {
+    public ArrayList<Employee> getListEmployees() {
         return listEmployees;
     }
 
-    public void setNameGroup(String nameGroup) {
-        this.nameGroup = nameGroup;
+    public void setNameGroup(String name) {
+        this.nameGroup = name;
     }
 
     //setlistEmployees не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
-    public void addEmployee(Employees employee) {
+    public void addEmployee(Employee employee) {
         int countEmployees = listEmployees.size();
         if (countEmployees == 10) {
             System.out.printf("В группе максимальное количество сотрудников(%d). Добавление не возможно!\n", 10);
             return;
+        }
+
+        if (employee == null){
+            System.out.println("Параметр employee равен null. Добавление не возможно!\n");
         }
 
         listEmployees.add(employee);
@@ -51,12 +53,12 @@ public class EmployeeGroup {
         }
     }
 
-    public void removeAdd() {
+    public void removeAll() {
         listEmployees.clear();
     }
 
     public void printInfo() {
-        for (Employees pair : listEmployees) {
+        for (Employee pair : listEmployees) {
             pair.printInfo();
         }
     }
