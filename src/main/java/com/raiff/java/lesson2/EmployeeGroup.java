@@ -48,7 +48,7 @@ public class EmployeeGroup {
 
         try {
             listEmployees.remove(index);
-        } catch (Exception e) {
+        } catch (IndexOutOfBoundsException e) {
             System.out.printf("Элемента с стаким индексом %d не существует. Элемент не удален!\n", index);
         }
     }

@@ -70,7 +70,7 @@ public class Employee {
         employeeGroup.printInfo();
 
         employeeGroup.removeEmployees(2);
-        employeeGroup.removeEmployees(5);
+        employeeGroup.removeEmployees(15);
 
         System.out.println("Полная очистка!!!");
         employeeGroup.removeAll();
