@@ -7,6 +7,7 @@ public class Employee {
     private int age;
     private String position;
 
+    Employee(){}
     Employee(String name, String email, int age, String position) {
         this.name = name;
         this.email = email;
