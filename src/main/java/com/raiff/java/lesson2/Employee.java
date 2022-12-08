@@ -70,13 +70,13 @@ public class Employee {
 
         employeeGroup.printInfo();
 
-        employeeGroup.removeEmployees(2);
-        employeeGroup.removeEmployees(15);
+        employeeGroup.removeEmployee(2);
+        employeeGroup.removeEmployee(15);
 
         System.out.println("Полная очистка!!!");
-        employeeGroup.removeAll();
+        employeeGroup.removeAdd();
 
-        employeeGroup.removeEmployees(0);
+        employeeGroup.removeEmployee(0);
 
     }
 
