@@ -1,66 +1,68 @@
 package com.raiff.java.lesson2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EmployeeGroup {
 
     private String groupName;
-    private ArrayList<Employee> listEmployees;
+    private Employee[] listEmployee;
 
-
-    EmployeeGroup(String nameGroup) {
-        this.groupName = nameGroup;
-        this.listEmployees = new ArrayList(10);
+    EmployeeGroup(String groupName) {
+        this.groupName = groupName;
+        this.listEmployee = new Employee[10];
     }
 
-    public String getNameGroup() {
+    public String getgroupName() {
         return groupName;
     }
 
-    public ArrayList<Employee> getListEmployees() {
-        return listEmployees;
+    public Employee[] getListEmployee() {
+        return listEmployee;
     }
 
-    public void setNameGroup(String name) {
-        this.groupName = name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    //setlistEmployees не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
+    //setlistEmployee не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
     public void addEmployee(Employee employee) {
-        int countEmployees = listEmployees.size();
-        if (countEmployees == 10) {
+        //Ищем место куда можно добавить сотрудника
+        boolean employeeAdded = false;
+        for (int i = 0; i < listEmployee.length; i++) {
+            if (listEmployee[i] == null) {
+                listEmployee[i] = employee;
+                employeeAdded = true;
+                return;
+            }
+        }
+
+        if (!employeeAdded) {
             System.out.printf("В группе максимальное количество сотрудников(%d). Добавление не возможно!\n", 10);
-            return;
         }
-
-        if (employee == null){
-            System.out.println("Параметр employee равен null. Добавление не возможно!\n");
-        }
-
-        listEmployees.add(employee);
     }
 
-    public void removeEmployees(int index) {
-        int countEmployees = listEmployees.size();
-        if (countEmployees == 0) {
-            System.out.println("В группе отсутствуют сотрудники. Удаление не возможно!");
-            return;
-        }
+    public void removeEmployee(int index) {
 
         try {
-            listEmployees.remove(index);
-        } catch (IndexOutOfBoundsException e) {
+            listEmployee[index] = null;
+        } catch (Exception e) {
             System.out.printf("Элемента с стаким индексом %d не существует. Элемент не удален!\n", index);
         }
     }
 
-    public void removeAll() {
-        listEmployees.clear();
+    public void removeAdd() {
+        for (int i = 0; i < listEmployee.length; i++) {
+            listEmployee[i] = null;
+        }
     }
 
     public void printInfo() {
-        for (Employee pair : listEmployees) {
-            pair.printInfo();
+        for (Employee pair : listEmployee) {
+            if (pair != null) {
+                pair.printInfo();
+            }
         }
     }
 }
