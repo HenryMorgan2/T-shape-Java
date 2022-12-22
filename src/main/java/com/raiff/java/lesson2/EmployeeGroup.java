@@ -1,29 +1,25 @@
 package com.raiff.java.lesson2;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class EmployeeGroup {
 
-    private String groupName;
+    private String name;
     private Employee[] listEmployee;
 
-    EmployeeGroup(String groupName) {
-        this.groupName = groupName;
+    EmployeeGroup(String name) {
+        this.name = name;
         this.listEmployee = new Employee[10];
     }
 
     public String getgroupName() {
-        return groupName;
+        return name;
     }
 
     public Employee[] getListEmployee() {
         return listEmployee;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     //setlistEmployee не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
