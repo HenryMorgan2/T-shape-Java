@@ -1,38 +1,34 @@
 package com.raiff.java.lesson2;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class EmployeeGroup {
 
-    private String nameGroup;
-    private Employees[] listEmployees;
+    private String name;
+    private Employee[] listEmployee;
 
-    EmployeeGroup(String nameGroup) {
-        this.nameGroup = nameGroup;
-        this.listEmployees = new Employees[10];
+    EmployeeGroup(String name) {
+        this.name = name;
+        this.listEmployee = new Employee[10];
     }
 
-    public String getNameGroup() {
-        return nameGroup;
+    public String getgroupName() {
+        return name;
     }
 
-    public Employees[] getListEmployees() {
-        return listEmployees;
+    public Employee[] getListEmployee() {
+        return listEmployee;
     }
 
-    public void setNameGroup(String nameGroup) {
-        this.nameGroup = nameGroup;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    //setlistEmployees не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
-    public void addEmployee(Employees employee) {
+    //setlistEmployee не вижу смысла добавлять, т.к. есть методы добавления, удаления и очистки сотрудников
+    public void addEmployee(Employee employee) {
         //Ищем место куда можно добавить сотрудника
         boolean employeeAdded = false;
-        for (int i = 0; i < listEmployees.length; i++) {
-            if (listEmployees[i] == null) {
-                listEmployees[i] = employee;
+        for (int i = 0; i < listEmployee.length; i++) {
+            if (listEmployee[i] == null) {
+                listEmployee[i] = employee;
                 employeeAdded = true;
                 return;
             }
@@ -43,23 +39,27 @@ public class EmployeeGroup {
         }
     }
 
-    public void removeEmployees(int index) {
+    public void removeEmployee(int index) {
 
         try {
-            listEmployees[index] = null;
-        } catch (Exception e) {
+            listEmployee[index] = null;
+        }
+        catch (IndexOutOfBoundsException e){
             System.out.printf("Элемента с стаким индексом %d не существует. Элемент не удален!\n", index);
+        }
+        catch (Exception e) {
+            System.out.printf("Неизвестное исключение!");
         }
     }
 
     public void removeAdd() {
-        for (int i = 0; i < listEmployees.length; i++) {
-            listEmployees[i] = null;
+        for (int i = 0; i < listEmployee.length; i++) {
+            listEmployee[i] = null;
         }
     }
 
     public void printInfo() {
-        for (Employees pair : listEmployees) {
+        for (Employee pair : listEmployee) {
             if (pair != null) {
                 pair.printInfo();
             }

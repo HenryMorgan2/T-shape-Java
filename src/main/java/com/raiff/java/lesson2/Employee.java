@@ -1,15 +1,14 @@
 package com.raiff.java.lesson2;
 
-public class Employees {
+public class Employee {
 
     private String name;
     private String email;
     private int age;
     private String position;
 
-    Employees(){}
-
-    Employees(String name, String email, int age, String position) {
+    Employee(){}
+    Employee(String name, String email, int age, String position) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -50,9 +49,9 @@ public class Employees {
     }
 
     public static void main(String[] args) {
-        Employees sotr1 = new Employees("Данил", "taraskovd@gmail.com", 37, "программист");
-        Employees sotr2 = new Employees("ВасЁк", "vasek@gmail.com", 20, "программист");
-        Employees sotr3 = new Employees("Петя", "petya@gmail.com", 27, "программист");
+        Employee sotr1 = new Employee("Данил", "taraskovd@gmail.com", 37, "программист");
+        Employee sotr2 = new Employee("ВасЁк", "vasek@gmail.com", 20, "программист");
+        Employee sotr3 = new Employee("Петя", "petya@gmail.com", 27, "программист");
         sotr1.printInfo();
         System.out.println("**********************************************");
 
@@ -71,13 +70,13 @@ public class Employees {
 
         employeeGroup.printInfo();
 
-        employeeGroup.removeEmployees(2);
-        employeeGroup.removeEmployees(5);
+        employeeGroup.removeEmployee(2);
+        employeeGroup.removeEmployee(15);
 
         System.out.println("Полная очистка!!!");
         employeeGroup.removeAdd();
 
-        employeeGroup.removeEmployees(0);
+        employeeGroup.removeEmployee(0);
 
     }
 
