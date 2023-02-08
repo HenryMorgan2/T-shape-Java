@@ -1,6 +1,6 @@
 package com.raiff.java.lesson3_3;
 
-public abstract class Ball implements Tossable {
+public class Ball implements Tossable {
     protected String brandName;
 
     Ball(String brandName) {
@@ -11,7 +11,11 @@ public abstract class Ball implements Tossable {
         return brandName;
     }
 
-    abstract void bounce();
+    void bounce() {
 
-    abstract public void toss();
+    }
+
+    public void toss(){
+
+    };
 }
