@@ -81,7 +81,7 @@ public class BlackjackHand extends Hand {
         // Если есть туз, и если сменить его значение с 1 на 11
         // значение руки станет 21 или меньше то надо так и делать.
 
-        if (ace == true && val + 10 <= 21)
+        if (ace && val + 10 <= 21)
             val = val + 10;
 
         return val;

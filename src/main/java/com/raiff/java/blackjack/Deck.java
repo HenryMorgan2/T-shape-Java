@@ -7,8 +7,15 @@ public class Deck {
 
     private static ArrayList<Card> deck; //колода с признаком использования карты
 
+    private static int usedCard; //количество использованных карт
+
     Deck() {
         this.deck = createDeck();
+    }
+
+    //Увеличить количество использованных карт
+    public static void increaseUsedCard() {
+        Deck.usedCard++;
     }
 
     public ArrayList<Card> getDeck() {
@@ -32,25 +39,35 @@ public class Deck {
         return deck;
     }
 
-    //Получение карты из колоды
-    public static Card getCardFromDeck(int numberCard) {
-        return deck.get(numberCard);
-    }
-
     //Получить не использованную карту из колоды
     public static Card getNotUsedCardFromDeck() {
 
         Random random = new Random();
-        Card cardNotUsed;
+        Card cardNotUsed = null;
 
         while (true) {
+
+            if (usedAllCard()) {
+                break;
+            }
+
             cardNotUsed = deck.get(random.nextInt(51));
             if (!cardNotUsed.getUsed()) {
+                increaseUsedCard();
+                cardNotUsed.setUsed(true); //Делаем карту использованной
                 break;
             }
         }
 
         return cardNotUsed;
+    }
+
+    public static boolean usedAllCard() {
+
+        if (usedCard >= 52) {
+            return true;
+        }
+        return false;
     }
 
 }

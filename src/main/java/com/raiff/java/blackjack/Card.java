@@ -2,10 +2,10 @@ package com.raiff.java.blackjack;
 
 public class Card {
 
-    private String suit; //масть карты
-    private int point; //количество очков
-    private String name; //название карты
-    private Boolean used; //карта использована
+    private final String suit; //масть карты
+    private final int point; //количество очков
+    private final String name; //название карты
+    private boolean used; //карта использована
 
     Card(String name, String suit, int point) {
         this.point = point;
@@ -18,21 +18,21 @@ public class Card {
         return point;
     }
 
-    public void setUsed(Boolean used) {
-        this.used = used;
-    }
-
     public Boolean getUsed() {
         return used;
     }
 
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
+
     void infoCard() {
 
-        if (point == 1){
-            System.out.printf("Карта: %s %s , 1 или 11 очков за карту\n", name, suit, point);
-        }else {
+        if (point == 1) {
+            System.out.printf("Карта: %s %s, 1 или 11 очков за карту\n", name, suit);
+        } else {
 
-            System.out.printf("Карта: %s %s , %d очков за карту\n", name, suit, point);
+            System.out.printf("Карта: %s %s, %d очков за карту\n", name, suit, point);
         }
     }
 

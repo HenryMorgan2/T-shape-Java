@@ -10,7 +10,7 @@ public class Hand {
         this.name = name;
     }
 
-    public void setCard(Card card) {
+    public void addCard(Card card) {
         this.cards.add(card);
     }
 
